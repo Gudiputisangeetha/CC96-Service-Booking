@@ -23,6 +23,8 @@ export default function Dashboard() {
       "https://cc96-service-booking.onrender.com/api/bookings/create",
       {
         customerId: user._id,
+        customerName: user.name,
+        customerEmail: user.email,
         serviceName: service,
         address: "Hyderabad",
         date: "2026-05-11"
@@ -96,6 +98,8 @@ export default function Dashboard() {
 
         {bookings.map((booking) => (
           <div className="booking-card" key={booking._id}>
+            <p>Customer: {booking.customerName}</p>
+            <p>Email: {booking.customerEmail}</p>
             <h3>{booking.serviceName}</h3>
             <p>{booking.address}</p>
             <p className={`status ${booking.status}`}>
