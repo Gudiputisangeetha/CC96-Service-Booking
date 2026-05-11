@@ -13,14 +13,14 @@ export default function Dashboard() {
 
   const fetchBookings = async () => {
     const res = await axios.get(
-      "http://localhost:5000/api/bookings/all"
+      "https://cc96-service-booking.onrender.com/api/bookings/all"
     );
     setBookings(res.data);
   };
 
   const createBooking = async () => {
     await axios.post(
-      "http://localhost:5000/api/bookings/create",
+      "https://cc96-service-booking.onrender.com/api/bookings/create",
       {
         customerId: user._id,
         serviceName: service,
@@ -34,14 +34,14 @@ export default function Dashboard() {
 
   const acceptBooking = async (id) => {
     await axios.put(
-      `http://localhost:5000/api/bookings/accept/${id}`
+      `https://cc96-service-booking.onrender.com/api/bookings/accept/${id}`
     );
     fetchBookings();
   };
 
   const deliverBooking = async (id) => {
     await axios.put(
-      `http://localhost:5000/api/bookings/deliver/${id}`
+      `https://cc96-service-booking.onrender.com/api/bookings/deliver/${id}`
     );
     fetchBookings();
   };
