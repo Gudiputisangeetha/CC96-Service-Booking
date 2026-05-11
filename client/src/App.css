@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+}
+
+.navbar {
+  background: linear-gradient(to right, #0066ff, #0099ff);
+  color: white;
+  padding: 18px 40px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.container {
+  padding: 40px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  margin-top: 25px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #0066ff;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.booking-card {
+  background: white;
+  padding: 20px;
+  margin-top: 18px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+}
+
+.status {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.pending {
+  color: orange;
+}
+
+.accepted {
+  color: green;
+}
+
+.delivered {
+  color: blue;
+}
+
+.hero-title {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.logout-btn {
+  background: crimson;
+}
+select {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
