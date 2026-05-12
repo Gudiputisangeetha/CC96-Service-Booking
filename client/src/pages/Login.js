@@ -28,7 +28,7 @@ export default function Login() {
     <div className="auth-page">
       <div className="auth-card">
         <h2>Login</h2>
-        <p>Access your service booking account</p>
+        <p>Access your account</p>
 
         <input
           type="email"
@@ -48,7 +48,7 @@ export default function Login() {
 
         <button onClick={handleLogin}>Login</button>
 
-        <p>
+        <p style={{ marginTop: "15px" }}>
           New user? <Link to="/signup">Create Account</Link>
         </p>
       </div>

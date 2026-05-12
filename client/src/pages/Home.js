@@ -4,7 +4,8 @@ export default function Home() {
   return (
     <div>
       <div className="navbar">
-        <div>Urban Service Booking</div>
+        <h2>Urban Service Booking</h2>
+
         <div>
           <button className="nav-btn">Offers</button>
           <button className="nav-btn">Support</button>
@@ -23,13 +24,15 @@ export default function Home() {
             <span>Plumbing</span>
           </div>
 
-          <Link to="/signup">
-            <button>Get Started</button>
-          </Link>
+          <div className="hero-buttons">
+            <Link to="/signup">
+              <button>Get Started</button>
+            </Link>
 
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
+            <Link to="/login">
+              <button>Login</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
