@@ -1,3 +1,32 @@
+.auth-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #eaf5ff, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-card {
+  background: white;
+  width: 380px;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  text-align: center;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 14px;
+  margin-top: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.auth-card button {
+  width: 100%;
+  margin-top: 18px;
+}
 .navbar {
   display: flex;
   justify-content: space-between;

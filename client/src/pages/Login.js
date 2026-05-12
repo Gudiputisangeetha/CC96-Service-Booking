@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Login() {
   const [form, setForm] = useState({
@@ -17,49 +17,41 @@ export default function Login() {
         form
       );
 
-      localStorage.setItem(
-        "user",
-        JSON.stringify(res.data.user)
-      );
-
+      localStorage.setItem("user", JSON.stringify(res.data.user));
       navigate("/dashboard");
-    } catch (error) {
-      alert(error.response?.data || "Login failed");
-      console.log(error.response?.data);
+    } catch (err) {
+      alert("Invalid credentials");
     }
   };
 
   return (
-    <div style={{ padding: 30 }}>
-      <h2>Login</h2>
+    <div className="auth-page">
+      <div className="auth-card">
+        <h2>Login</h2>
+        <p>Access your service booking account</p>
 
-      <input
-        type="email"
-        placeholder="Email"
-        value={form.email}
-        onChange={(e) =>
-          setForm({
-            ...form,
-            email: e.target.value
-          })
-        }
-      />
+        <input
+          type="email"
+          placeholder="Enter Email"
+          onChange={(e) =>
+            setForm({ ...form, email: e.target.value })
+          }
+        />
 
-      <input
-        type="password"
-        placeholder="Password"
-        value={form.password}
-        onChange={(e) =>
-          setForm({
-            ...form,
-            password: e.target.value
-          })
-        }
-      />
+        <input
+          type="password"
+          placeholder="Enter Password"
+          onChange={(e) =>
+            setForm({ ...form, password: e.target.value })
+          }
+        />
 
-      <button onClick={handleLogin}>
-        Login
-      </button>
+        <button onClick={handleLogin}>Login</button>
+
+        <p>
+          New user? <Link to="/signup">Create Account</Link>
+        </p>
+      </div>
     </div>
   );
 }
