@@ -15,11 +15,28 @@ export default function Signup() {
   const [otp, setOtp] = useState("");
   const [otpVerified, setOtpVerified] = useState(false);
 
-  const verifyOtp = () => {
-    if (otp === "123456") {
+  const sendOtp = async () => {
+    try {
+      const res = await axios.post(
+        "https://cc96-service-booking.onrender.com/api/auth/send-otp"
+      );
+
+      alert(`Demo OTP: ${res.data.otp}`);
+    } catch (err) {
+      alert("Failed to generate OTP");
+    }
+  };
+
+  const verifyOtp = async () => {
+    try {
+      await axios.post(
+        "https://cc96-service-booking.onrender.com/api/auth/verify-otp",
+        { otp }
+      );
+
       setOtpVerified(true);
       alert("OTP Verified Successfully");
-    } else {
+    } catch (err) {
       alert("Invalid OTP");
     }
   };
@@ -43,8 +60,8 @@ export default function Signup() {
   };
 
   return (
-    <div className="container">
-      <div className="card">
+    <div className="auth-page">
+      <div className="auth-card">
         <h2>Customer Signup</h2>
 
         <input
@@ -72,13 +89,15 @@ export default function Signup() {
           }
         />
 
+        <button onClick={sendOtp}>
+          Send OTP
+        </button>
+
         <input
           placeholder="Enter OTP"
           value={otp}
           onChange={(e) => setOtp(e.target.value)}
         />
-
-        <p>Demo OTP: 123456</p>
 
         <button onClick={verifyOtp}>
           Verify OTP

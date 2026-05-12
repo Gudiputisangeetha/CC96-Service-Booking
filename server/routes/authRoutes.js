@@ -1,3 +1,4 @@
+let generatedOTP = "";
 const router = require("express").Router();
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
@@ -62,6 +63,27 @@ router.post("/login", async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
+});
+router.post("/send-otp", (req, res) => {
+  generatedOTP = Math.floor(
+    100000 + Math.random() * 900000
+  ).toString();
+
+  res.json({
+    message: "OTP generated successfully",
+    otp: generatedOTP
+  });
+});
+router.post("/verify-otp", (req, res) => {
+  const { otp } = req.body;
+
+  if (otp === generatedOTP) {
+    return res.json({ message: "OTP verified" });
+  }
+
+  return res.status(400).json({
+    message: "Invalid OTP"
+  });
 });
 
 module.exports = router;
