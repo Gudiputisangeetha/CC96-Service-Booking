@@ -4,25 +4,31 @@ export default function Home() {
   return (
     <div>
       <div className="navbar">
-        Urban Service Booking
+        <div>Urban Service Booking</div>
+        <div>
+          <button className="nav-btn">Offers</button>
+          <button className="nav-btn">Support</button>
+        </div>
       </div>
 
-      <div className="container">
-        <div className="card">
-          <h1 className="hero-title">
-            Book Trusted Home Services
-          </h1>
+      <div className="hero-section">
+        <h1>Book Trusted Home Services</h1>
+        <p>Cleaning, Repairing, Beauty & More</p>
 
-          <p className="hero-subtitle">
-            Cleaning, Repairs, Beauty, Home Care
-          </p>
+        <div className="search-box">
+          <div className="service-tabs">
+            <span>Cleaning</span>
+            <span>Repairing</span>
+            <span>Beauty</span>
+            <span>Plumbing</span>
+          </div>
+
+          <Link to="/signup">
+            <button>Get Started</button>
+          </Link>
 
           <Link to="/login">
             <button>Login</button>
-          </Link>
-
-          <Link to="/signup">
-            <button>Signup</button>
           </Link>
         </div>
       </div>

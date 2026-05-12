@@ -56,31 +56,37 @@ export default function Dashboard() {
   return (
     <div>
       <div className="navbar">
-        Dashboard - {user.role}
+        <h2>Urban Service Booking</h2>
+        <div>
+          Welcome, {user.name} ({user.role})
+        </div>
       </div>
 
       <div className="container">
-        <button
-          className="logout-btn"
-          onClick={logout}
-        >
+        <button className="logout-btn" onClick={logout}>
           Logout
         </button>
 
+        <div className="card">
+          <h3>Why Choose Us?</h3>
+          <p>✔ Verified Vendors</p>
+          <p>✔ Secure Booking</p>
+          <p>✔ Fast Service Delivery</p>
+        </div>
+
         {user.role === "customer" && (
           <div className="card">
-            <h2>Book Service</h2>
+            <h2>Book a Service</h2>
 
             <select
               value={service}
-              onChange={(e) =>
-                setService(e.target.value)
-              }
+              onChange={(e) => setService(e.target.value)}
               style={{
                 width: "100%",
                 padding: "14px",
                 marginTop: "12px",
-                borderRadius: "8px"
+                borderRadius: "8px",
+                border: "1px solid #ccc"
               }}
             >
               <option>Cleaning</option>
@@ -90,41 +96,34 @@ export default function Dashboard() {
               <option>Electrician</option>
             </select>
 
-            <button onClick={createBooking}>
-              Confirm Booking
-            </button>
+            <button onClick={createBooking}>Confirm Booking</button>
           </div>
         )}
 
+        <h2 style={{ marginTop: "30px" }}>Bookings</h2>
+
         {bookings.map((booking) => (
           <div className="booking-card" key={booking._id}>
-            <p>Customer: {booking.customerName}</p>
-            <p>Email: {booking.customerEmail}</p>
             <h3>{booking.serviceName}</h3>
-            <p>{booking.address}</p>
+            <p><strong>Customer:</strong> {booking.customerName}</p>
+            <p><strong>Email:</strong> {booking.customerEmail}</p>
+            <p><strong>Location:</strong> {booking.address}</p>
+
             <p className={`status ${booking.status}`}>
               Status: {booking.status}
             </p>
 
             {user.role === "vendor" &&
               booking.status === "pending" && (
-                <button
-                  onClick={() =>
-                    acceptBooking(booking._id)
-                  }
-                >
-                  Accept
+                <button onClick={() => acceptBooking(booking._id)}>
+                  Accept Service
                 </button>
               )}
 
             {user.role === "vendor" &&
               booking.status === "accepted" && (
-                <button
-                  onClick={() =>
-                    deliverBooking(booking._id)
-                  }
-                >
-                  Deliver
+                <button onClick={() => deliverBooking(booking._id)}>
+                  Mark Delivered
                 </button>
               )}
           </div>
