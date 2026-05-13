@@ -46,8 +46,8 @@ Password: Test@123
 Email: vendor@test.com  
 Password: Test@123  
 
-### OTP
-123456
+### Signup OTP Flow
+For customer signup, click Send OTP. A demo OTP will be displayed in an alert popup. Enter the same OTP and click Verify OTP to complete signup.
 
 ---
 
@@ -66,7 +66,7 @@ CC96-Service-Booking/
 ### Clone repository
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/Gudiputisangeetha/CC96-Service-Booking
 ```
 
 ---
@@ -83,7 +83,7 @@ Create `.env`
 
 ```env
 PORT=5000
-MONGO_URI=your_mongodb_uri
+MONGO_URI=mongodb://gudiputichaithanya_db_user:vfPry9jPJByFL7Yk@ac-bburgmg-shard-00-00.w0het9n.mongodb.net:27017,ac-bburgmg-shard-00-01.w0het9n.mongodb.net:27017,ac-bburgmg-shard-00-02.w0het9n.mongodb.net:27017/?ssl=true&replicaSet=atlas-lq8wnc-shard-0&authSource=admin&appName=Cluster0
 JWT_SECRET=cc96secret
 ```
 
